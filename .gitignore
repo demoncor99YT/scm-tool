@@ -1,0 +1,21 @@
+# Node / general
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/dist
+/build
+.DS_Store
+.env
+.vscode/
+coverage/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Editor
+.idea/
+*.sublime-workspace
+*.sublime-project
+

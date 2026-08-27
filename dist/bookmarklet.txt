@@ -1,0 +1,1 @@
+javascript:(function(){var s=document.createElement('script');s.src='https://raw.githubusercontent.com/demoncor99YT/scm-tool/main/src/scm-bot.js';s.onload=function(){console.log('SCM Tool loaded');};document.body.appendChild(s);})();void(0);

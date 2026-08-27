@@ -1,12 +1,24 @@
 # SCM Tool
 
-SCM Tool is a small browser-based helper for a football manager-like game. It scans market listings, automates simple signings, assists with selling/appraising players, runs XP/train loops and audits academy/building profitability. The tool is distributed as a single JavaScript file that you can run in the browser console while on the game's pages.
+Professional release of SCM Tool — a browser helper for soccerclubmanager.com.
 
-IMPORTANT: Use this script only where allowed by the game's terms of service. Automating interactions can violate some services' rules.
+SCM Tool provides in-page automation and analytics helpers for football manager-style web games. It is distributed as a small JavaScript utility that you can run on the game's pages to surface a floating control panel with modules for market scanning, signing suggestions, sales appraisal, XP/training loops, squad analytics and academy scouting.
 
-## Features
+IMPORTANT: Only use this tool on soccerclubmanager.com or other sites where executing custom scripts is permitted by the site's Terms of Service. Using automation on platforms that forbid it may lead to account suspension.
 
-- Market scanner and auto-signing by Talent/Age/Level/Budget/Position
+Repository: https://github.com/demoncor99YT/scm-tool
+
+Table of contents
+- Features
+- Quick start (bookmarklet)
+- Manual installation (console)
+- Configuration & behavior
+- Safety & privacy
+- Development & contribution
+- License
+
+Features
+- Market scanner & auto-signing by Talent, Age, Level, Budget and Position
 - Appraise and recommend sale prices
 - XP/training automation loop
 - Squad analysis (averages)
@@ -14,25 +26,44 @@ IMPORTANT: Use this script only where allowed by the game's terms of service. Au
 - Building profitability audit (Upgrades)
 - In-page UI with logs and controls
 
-## Usage
+Quick start — bookmarklet (recommended)
+1. Create a new bookmark in your browser.
+2. For the bookmark URL use the following one-line bookmarklet (copy as-is):
 
-1. Open the web page of the game in your browser.
-2. Open the browser developer console (F12 or right-click → Inspect → Console).
+```
+javascript:(function(){var s=document.createElement('script');s.src='https://raw.githubusercontent.com/demoncor99YT/scm-tool/main/src/scm-bot.js';s.onload=function(){console.log('SCM Tool loaded');};document.body.appendChild(s);})();void(0);
+```
+
+3. Open https://soccerclubmanager.com and click the bookmarklet. The floating SCM BOT UI will appear.
+
+Manual installation (developer console)
+1. Open the game's page at https://soccerclubmanager.com.
+2. Open developer tools (F12) → Console.
 3. Paste the contents of `src/scm-bot.js` and press Enter.
-4. The floating SCM BOT UI will appear. Use the tabs and buttons to run the modules.
 
-Notes:
-- The script interacts with DOM elements it expects on the page (tables, rows, buttons). It may not work if the game's UI differs significantly.
-- There are two automatic loops: Market (5s) and XP (8s). Disable them before leaving the page if needed.
+Configuration & behavior
+- The UI exposes several tabs: Market, XP, Upgrades, Team, Academy, Tips.
+- Market: configure minimum talent, maximum age, minimum level, position and max budget. Use FILTER & BUY to scan current listings and trigger a buy action when a match is found.
+- XP: triggers training clicks across available buttons. Optionally enable auto-loop.
+- Upgrades: scans building upgrade pages and recommends best ROI investments.
+- Academy: scans youth players and highlights gems and acceptable prospects.
 
-## Files
+How the script interacts with the page
+- The tool scans table rows (`tr`), cells (`td`), and typical `button` elements. It expects the game's DOM to present player/building information in a text format the script can parse (numbers, € signs, position text). If the game's UI changes, the tool may stop working and will need updates.
 
-- `src/scm-bot.js` — main script (IIFE) with UI and automation logic.
+Safety & privacy
+- The script runs entirely in your browser and does not send data to external servers.
+- For safety, disable automatic loops before navigating away from the page.
+- Do not use automation on accounts you cannot risk losing; follow soccerclubmanager.com's rules.
 
-## License
+Development & contribution
+- The main script lives in `src/scm-bot.js`.
+- If you want bug fixes, improvements, or translations, open an issue or submit a pull request.
+- Suggested improvements: localization, robust DOM selectors, unit tests, a packaged browser extension.
 
-This repository is provided without warranty. You may use the code under the MIT License. See `LICENSE` for details.
+License
+This project is provided under the MIT License (see LICENSE).
 
-## Contributing
+Credits
+- Original script and UI by PikaBot (adapted and published by demoncor99YT).
 
-If you want improvements or fixes, open an issue in this repository.
